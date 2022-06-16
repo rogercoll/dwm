@@ -51,3 +51,5 @@ Customization
 -------------
 
 1. Change ModKey1 (Alt) to ModKey4 (WK)
+2. Add Alacritty as default terminal
+3. Use brave-browser as terminal (ModKey + W)
