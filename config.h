@@ -1,8 +1,15 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+
 
 /* Constants */
 #define TERMINAL "alacritty"
-#define BROWSER "brave-browser"
+#define BROWSER "firefox"
+
+/* Volume control with amixer. */
+static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
+static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
+static const char *mutevol[] = { "/usr/bin/amixerl", "set", "Master", "toggle", NULL };
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -66,6 +73,9 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,				XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,				XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,				XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_w,	   spawn,	   {.v = (const char*[]){ BROWSER, NULL } } },
