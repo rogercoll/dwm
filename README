@@ -56,3 +56,5 @@ Customization
 4. Patch: Actual fullscreen (ModKey + f)
 5. Increase borderpx from 1 to 3
 6. Change cyan default color to orange
+7. Control audio with amixer
+8. Add power key binding

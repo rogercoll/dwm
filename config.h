@@ -5,6 +5,7 @@
 /* Constants */
 #define TERMINAL "alacritty"
 #define BROWSER "firefox"
+#define POWER "powermenu_dwm"
 
 /* Volume control with amixer. */
 static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
@@ -73,6 +74,7 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_s,      spawn,          {.v = (const char*[]){ POWER, NULL } } },
 	{ 0,				XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,				XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,				XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
